@@ -183,7 +183,7 @@ class Wistia extends \Weblab\Video {
         // if this is not a valid wistia video, throw an error
         if (preg_match('/https?:\/\/(.+)?(wistia.com|wi.st)\/(medias|embed)\/.*/', $url) == 0) {
             // something went wrong, throw an exception
-            throw new Exception('Not a valid video');
+            throw new \Exception('Not a valid video');
         }
         
         // try getting the id

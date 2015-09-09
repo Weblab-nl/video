@@ -97,7 +97,7 @@ class Youtube extends \Weblab\Video {
     protected function parse($url) {
         // if something went wrong, throw an error
         if (preg_match('/youtu\.?be/', $url) == 0) {
-            throw new Exception('Not a valid video');
+            throw new \Exception('Not a valid video');
         }
 
         // filter out the id

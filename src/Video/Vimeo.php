@@ -63,7 +63,7 @@ class Vimeo extends \Weblab\Video {
         // parse whenever we are dealing with vimeo
         if (preg_match('/vimeo/', $url) == 0) {
             // something went wrong, throw an exception
-            throw new Exception('Not a valid video');
+            throw new \Exception('Not a valid video');
         }
         
         // try getting the id

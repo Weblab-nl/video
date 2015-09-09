@@ -188,7 +188,7 @@ abstract class Video {
         }
         
         // something went wrong, throw an exception
-        throw new Exception('Not a valid video');
+        throw new \Exception('Not a valid video');
     }
 
 }
