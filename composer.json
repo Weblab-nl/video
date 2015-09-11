@@ -1,7 +1,7 @@
 {
   "name": "weblabnl/video",
   "type": "library",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Library to load and embed a video based on the youtube, vimeo or wistia url",
   "license": "Apache-2.0",
   "authors": [

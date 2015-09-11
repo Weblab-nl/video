@@ -57,9 +57,10 @@ class Youtube extends \Weblab\Video {
     /**
      * Function to download the thumbnail file
      *
-     * @return \Th\FileDownloader
+     * @param   string|null             Possible name, to use to store the file
+     * @return  \Th\FileDownloader      The file download instance
      */
-    public function downloadThumb() {
+    public function downloadThumb($name = null) {
         // call the parent
         $downloader = parent::downloadThumb();
 
