@@ -62,7 +62,7 @@ class Youtube extends \Weblab\Video {
      */
     public function downloadThumb($name = null) {
         // call the parent
-        $downloader = parent::downloadThumb();
+        $downloader = parent::downloadThumb($name);
 
         // if there is a downloader, return it
         if (!is_null($downloader)) {
@@ -77,7 +77,7 @@ class Youtube extends \Weblab\Video {
         $this->lowRes = true;
 
         // done, return the downloader
-        return parent::downloadThumb();
+        return parent::downloadThumb($name);
     }
 
     /**
