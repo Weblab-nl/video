@@ -116,10 +116,11 @@ abstract class Video {
     
     /**
      * Function to download the thumbnail file
-     * 
-     * @return \Th\FileDownloader
+     *
+     * @param   string|null             Possible name, to use to store the file
+     * @return  \Th\FileDownloader      The file download instance
      */
-    public function downloadThumb() {
+    public function downloadThumb($name = null) {
         // create the path to the thumbnail file
         $file = 'http:' . $this->thumbnail();
 
@@ -132,6 +133,12 @@ abstract class Video {
         // try downloading the file
         try {
             $downloader = new \Th\FileDownloader($file, $allowedMimeTypes, $allowedExtensions);
+
+            // set the name if a name was given
+            if (!is_null($name)) {
+                $downloader->setName($name);
+            }
+
             $downloader->download();
         } catch (\Exception $exception) {
             return null;
