@@ -122,7 +122,7 @@ abstract class Video {
      */
     public function downloadThumb($name = null) {
         // create the path to the thumbnail file
-        $file = 'http:' . $this->thumbnail();
+        $file = 'https://' . str_replace(array('http://', 'https://', '//'), '', $this->thumbnail());
 
         // set the allowed mime types
         $allowedMimeTypes = array('image/jpeg', 'image/png', 'image/gif'); 
