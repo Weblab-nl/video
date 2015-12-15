@@ -46,7 +46,7 @@ class Youtube extends \Weblab\Video {
      */
     public function title() {
         // if the title is known, return it
-        if (!is_null($this->title)) {
+        if (!empty($this->title)) {
             return $this->title;
         }
 

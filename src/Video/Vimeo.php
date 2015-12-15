@@ -47,7 +47,7 @@ class Vimeo extends \Weblab\Video {
      */
     public function title() {
         // if the title is known, return it
-        if (!is_null($this->title)) {
+        if (!empty($this->title)) {
             return $this->title;
         }
 
@@ -70,7 +70,7 @@ class Vimeo extends \Weblab\Video {
      */
     public function description() {
         // if the description is known, return it
-        if (!is_null($this->description)) {
+        if (!empty($this->description)) {
             return $this->description;
         }
 
