@@ -36,6 +36,20 @@ abstract class Video {
      * @var string
      */
     protected $thumbnail = null;
+
+    /**
+     * The video title
+     *
+     * @var string
+     */
+    protected $title = '';
+
+    /**
+     * The video description
+     *
+     * @var string
+     */
+    protected $description = '';
     
     /**
      * The video information from the api
@@ -103,6 +117,24 @@ abstract class Video {
      */
     public function id() {
         return $this->id;
+    }
+
+    /**
+     * Get the title
+     *
+     * @return string               The video title
+     */
+    public function title() {
+        return $this->title;
+    }
+
+    /**
+     * Get the description
+     *
+     * @return string               The video description
+     */
+    public function description() {
+        return $this->description;
     }
     
     /**

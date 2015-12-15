@@ -40,6 +40,29 @@ class Youtube extends \Weblab\Video {
     }
 
     /**
+     * Get the video title
+     *
+     * @return  string              The video title
+     */
+    public function title() {
+        // if the title is known, return it
+        if (!is_null($this->title)) {
+            return $this->title;
+        }
+
+        // get the video information
+        $information = $this->videoApiInformation();
+
+        // if there is no video title, return out
+        if (!isset($information->title)) {
+            return $this->title = '';
+        }
+
+        // done, set and return the title
+        return $this->title = $information->title;
+    }
+
+    /**
      * The video embed code
      *
      * @param   int             The video height
@@ -119,7 +142,13 @@ class Youtube extends \Weblab\Video {
      * @return mixed                    The video information from the video api of the type
      */
     protected function videoApiInformation() {
-        return null;
+        // if the video information has been set before, return it
+        if (!is_null($this->videoInformation)) {
+            return $this->videoInformation;
+        }
+
+        // done, return the information
+        return $this->videoInformation = json_decode(@file_get_contents('http://www.youtube.com/oembed?url=' . urlencode($this->url())));
     }
 
 }

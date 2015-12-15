@@ -18,19 +18,19 @@ class Vimeo extends \Weblab\Video {
     }
     
     /**
-     * Get the video thumbnail
-     * 
-     * @return  string              The video thumbnail url
-     */
+ * Get the video thumbnail
+ *
+ * @return  string              The video thumbnail url
+ */
     public function thumbnail() {
         // if the thumbnail is known, return it
         if (!is_null($this->thumbnail)) {
             return $this->thumbnail;
         }
-        
+
         // get the video information
         $information = $this->videoApiInformation();
-                
+
         // if there is no video image, return out
         if (!isset($information[0]) || (isset($information[0]) && !isset($information[0]['thumbnail_large']))) {
             return $this->thumbnail = '';
@@ -38,6 +38,52 @@ class Vimeo extends \Weblab\Video {
 
         // done, set and return the thumbnail
         return $this->thumbnail = str_replace('http:', '', $information[0]['thumbnail_large']);
+    }
+
+    /**
+     * Get the video title
+     *
+     * @return  string              The video title
+     */
+    public function title() {
+        // if the title is known, return it
+        if (!is_null($this->title)) {
+            return $this->title;
+        }
+
+        // get the video information
+        $information = $this->videoApiInformation();
+
+        // if there is no video title, return out
+        if (!isset($information[0]) || (isset($information[0]) && !isset($information[0]['title']))) {
+            return $this->title = '';
+        }
+
+        // done, set and return the title
+        return $this->title = $information[0]['title'];
+    }
+
+    /**
+     * Get the video description
+     *
+     * @return  string              The video description
+     */
+    public function description() {
+        // if the description is known, return it
+        if (!is_null($this->description)) {
+            return $this->description;
+        }
+
+        // get the video information
+        $information = $this->videoApiInformation();
+
+        // if there is no video description, return out
+        if (!isset($information[0]) || (isset($information[0]) && !isset($information[0]['description']))) {
+            return $this->description = '';
+        }
+
+        // done, set and return the description
+        return $this->description = $information[0]['description'];
     }
 
     /**
