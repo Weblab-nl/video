@@ -227,7 +227,7 @@ class Wistia extends \Weblab\Video {
         }
         
         // done, return the video information
-        return $this->apiInformation[md5($url)] = json_decode(file_get_contents('http://fast.wistia.com/oembed.json?url=' . urldecode($url)));
+        return $this->apiInformation[md5($url)] = json_decode(file_get_contents('https://fast.wistia.com/oembed.json?url=' . urldecode($url)));
     }
 
 }

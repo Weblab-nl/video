@@ -36,7 +36,7 @@ class Youtube extends \Weblab\Video {
         }
 
         // done, add and return the thumbnail
-        return $this->thumbnail = '//img.youtube.com/vi/' . $this->id() . '/maxresdefault.jpg';
+        return $this->thumbnail = 'https//img.youtube.com/vi/' . $this->id() . '/maxresdefault.jpg';
     }
 
     /**
@@ -94,7 +94,7 @@ class Youtube extends \Weblab\Video {
 
         // no downloader available, so set a low res thumbnail to make the
         // thumb available still
-        $this->thumbnail = '//img.youtube.com/vi/' . $this->id() . '/0.jpg';
+        $this->thumbnail = 'https//img.youtube.com/vi/' . $this->id() . '/0.jpg';
 
         // set the video to be low res
         $this->lowRes = true;
@@ -148,7 +148,7 @@ class Youtube extends \Weblab\Video {
         }
 
         // done, return the information
-        return $this->videoInformation = json_decode(@file_get_contents('http://www.youtube.com/oembed?url=' . urlencode($this->url())));
+        return $this->videoInformation = json_decode(@file_get_contents('https://www.youtube.com/oembed?url=' . urlencode($this->url()) . '&format=json'));
     }
 
 }

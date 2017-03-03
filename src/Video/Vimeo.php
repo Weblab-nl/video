@@ -37,7 +37,7 @@ class Vimeo extends \Weblab\Video {
         }
 
         // done, set and return the thumbnail
-        return $this->thumbnail = str_replace('http:', '', $information[0]['thumbnail_large']);
+        return $this->thumbnail = str_replace('https:', '', $information[0]['thumbnail_large']);
     }
 
     /**
@@ -138,7 +138,7 @@ class Vimeo extends \Weblab\Video {
         }
         
         // done, return the vimeo information
-        return $this->videoInformation = unserialize(@file_get_contents('http://vimeo.com/api/v2/video/' . $this->id() . '.php'));
+        return $this->videoInformation = unserialize(@file_get_contents('https://vimeo.com/api/v2/video/' . $this->id() . '.php'));
     }
     
 }
